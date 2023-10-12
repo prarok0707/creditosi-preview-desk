@@ -381,6 +381,12 @@ body.no-scroll {
     transform: translate3d(0, 50%, 0);
 }
 
+@media (any-hover: hover) {
+    .calc__button:hover {
+        box-shadow: 0px 21px 30px -8px rgba(213, 119, 236, 0.4);
+    }
+}
+
 .calc__slider.noUi-target.noUi-ltr.noUi-horizontal {
     height: 5px;
     border-radius: 4px;
