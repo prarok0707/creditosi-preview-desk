@@ -2092,6 +2092,8 @@ body.no-scroll {
 .footer {
     padding: 45px 0 50px 0;
     background: var(--color-03);
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 576px) {
