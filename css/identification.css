@@ -1693,152 +1693,269 @@ body.no-scroll {
     }
 }
 
-.air-datepicker-overlay {
-    --adp-overlay-z-index: 1000 !important;
-    --adp-overlay-background-color: rgba(0, 0, 0, 0.6) !important;
+.popup-layout {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
 }
 
-.air-datepicker-custom.air-datepicker {
-    --adp-day-cell-height: 28px;
-    --adp-padding: 15px 20px;
-    --adp-font-family: "Circe";
-    --adp-font-size: 16px;
-    --adp-border-radius: 15px;
-    --adp-nav-arrow-color: var(--color-24);
-    --adp-day-name-color: var(--color-13);
-    --adp-color-current-date: var(--color-07);
-    --adp-color: var(--color-14);
-    --adp-cell-background-color-selected: var(--color-07);
-    --adp-cell-background-color-selected-hover: var(--color-05);
-    --adp-background-color-selected-other-month-focused: var(--color-05);
-    --adp-z-index: 1001;
-    --adp-mobile-width: calc(320px - 15px * 2);
-    --_adp-padding-inline: 20px;
-    --_adp-padding-block: 15px;
-    --_adp-color-active-date: var(--color-07);
-    border: none;
+.popup-layout.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-nav--title {
+.popup {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
+}
+
+.popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__wrapper {
+    min-height: 100%;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__body {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--color-02);
+    position: relative;
+}
+
+@media (min-width: 576px) {
+    .popup__body {
+        padding: 20px 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .popup__body {
+        padding: 40px 60px;
+    }
+}
+
+.popup__close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.popup__close svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    stroke: var(--color-07);
+    stroke-width: 2px;
+    transform: rotate(45deg);
+    transition: transform 0.15s linear;
+}
+
+@media (any-hover: hover) {
+    .popup__close:hover svg {
+        transform: rotate(135deg);
+    }
+}
+
+@media (min-width: 576px) {
+    .popup__close {
+        width: 28px;
+        height: 28px;
+        top: 20px;
+        right: 15px;
+    }
+
+    .popup__close svg {
+        stroke-width: 4px;
+    }
+}
+
+.popup__title {
+    padding: 0 15px;
+    margin: 0 0 10px 0;
+    display: block;
+    font-size: 1rem;
+    text-align: center;
     font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-04);
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-nav--title i {
+@media (min-width: 576px) {
+    .popup__title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .popup__title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .popup__title {
+        font-size: 1.75rem;
+    }
+}
+
+.popup__text {
+    margin: 0 0 20px 0;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.27;
+    color: var(--color-13);
+}
+
+.popup__text a {
     color: inherit;
+    text-decoration: underline;
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-nav {
-    padding: var(--_adp-padding-block) var(--_adp-padding-inline) 0;
-    border: none;
+@media (any-hover: hover) {
+    .popup__text a:hover {
+        text-decoration: none;
+    }
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-nav .air-datepicker-nav--action {
-    color: red;
+@media (min-width: 576px) {
+    .popup__text {
+        font-size: 1rem;
+    }
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker--content {
-    padding: 0 var(--_adp-padding-inline) var(--_adp-padding-block);
+@media (min-width: 768px) {
+    .popup__text {
+        margin: 0 0 30px 0;
+        font-size: 1.125rem;
+    }
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-body--day-name {
-    font-size: 1em;
-    text-transform: lowercase;
+.popup__button {
+    max-width: 270px;
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-cell.-day-.-current- {
-    font-weight: 800;
+@media (min-width: 768px) {
+    .popup__button {
+        max-width: 365px;
+    }
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-cell.-day-.-selected- {
-    font-size: 1.25em;
-    font-weight: 800;
+.popup__subbutton {
+    margin: 20px 0 0 0;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-03);
+    border-bottom: 1px solid transparent;
+    transition: border 0.15s linear;
 }
 
-.air-datepicker-custom.air-datepicker .air-datepicker-cell.-day-.-selected-:not(.-focus-) {
-    color: var(--_adp-color-active-date);
-    background: none;
+@media (any-hover: hover) {
+    .popup__subbutton:hover {
+        border-color: currentColor;
+    }
 }
 
-.passport-data {
-    --passport-data-gap: 7px;
+@media (min-width: 576px) {
+    .popup__subbutton {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .popup__subbutton {
+        margin: 30px 0 0 0;
+        font-size: 1.25rem;
+    }
+}
+
+.identification {
+    --identification-gap: 10px;
     padding: 20px 0 50px 0;
     position: relative;
     z-index: 1;
 }
 
 @media (min-width: 576px) {
-    .passport-data {
+    .identification {
         padding: 20px 0 60px 0;
-        --passport-data-gap: 10px;
     }
 }
 
 @media (min-width: 768px) {
-    .passport-data {
+    .identification {
         padding: 20px 0 80px 0;
     }
 }
 
 @media (min-width: 1200px) {
-    .passport-data {
+    .identification {
         padding: 30px 0 100px 0;
-        --passport-data-gap: 15px 10px;
     }
 }
 
-.passport-data__passport,
-.passport-data__address {
-    display: grid;
-    gap: var(--passport-data-gap);
+.identification .main-block__subtitle {
+    max-width: 540px;
+    margin: 0 auto;
 }
 
-.passport-data__address {
+.identification__items {
     padding: 0 0 30px 0;
-}
-
-@media (max-width: 576px) {
-    .passport-data__address .possport-data__row-3 {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (min-width: 1200px) {
-    .passport-data__address {
-        padding: 0 0 40px 0;
-    }
-}
-
-.possport-data__row-3 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--passport-data-gap);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--identification-gap);
 }
 
-.possport-data__row-3 > div:last-child {
+.identification__items .input:first-child {
     grid-column: 1/-1;
 }
 
-.possport-data__row-3 .passport-data__row {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 576px) {
-    .possport-data__row-3 {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+@media (min-width: 992px) {
+    .identification__items {
+        grid-template-columns: 1fr repeat(2, minmax(150px, 200px));
     }
 
-    .possport-data__row-3 > div:last-child {
+    .identification__items .input:first-child {
         grid-column: auto;
     }
 }
 
-.passport-data__row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    grid-auto-rows: 1fr;
-    gap: var(--passport-data-gap);
-}
-
-.passport-data__row .radio {
-    display: flex;
+@media (min-width: 1200px) {
+    .identification__items {
+        padding: 0 0 40px 0;
+    }
 }

@@ -1019,6 +1019,7 @@ body.no-scroll {
     font-size: 16px;
     font-weight: 700;
     color: var(--color-03);
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
