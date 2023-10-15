@@ -1715,280 +1715,123 @@ body.no-scroll {
     }
 }
 
-.popup-layout {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s linear, visibility 0.2s linear;
-}
-
-.popup-layout.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1001;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s linear, visibility 0.2s linear;
-}
-
-.popup.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup__wrapper {
-    min-height: 100%;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup__body {
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    background: var(--color-02);
-    position: relative;
-}
-
-@media (min-width: 576px) {
-    .popup__body {
-        padding: 20px 40px;
-    }
-}
-
-@media (min-width: 768px) {
-    .popup__body {
-        padding: 40px 60px;
-    }
-}
-
-.popup__close {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-}
-
-.popup__close svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    stroke: var(--color-07);
-    stroke-width: 2px;
-    transform: rotate(45deg);
-    transition: transform 0.15s linear;
-}
-
-@media (any-hover: hover) {
-    .popup__close:hover svg {
-        transform: rotate(135deg);
-    }
-}
-
-@media (min-width: 576px) {
-    .popup__close {
-        width: 28px;
-        height: 28px;
-        top: 20px;
-        right: 15px;
-    }
-
-    .popup__close svg {
-        stroke-width: 4px;
-    }
-}
-
-.popup__title {
-    padding: 0 15px;
-    margin: 0 0 10px 0;
-    display: block;
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--color-04);
-}
-
-@media (min-width: 576px) {
-    .popup__title {
-        font-size: 1.25rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .popup__title {
-        font-size: 1.5rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .popup__title {
-        font-size: 1.75rem;
-    }
-}
-
-.popup__text {
-    margin: 0 0 20px 0;
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 400;
-    text-align: center;
-    line-height: 1.27;
-    color: var(--color-13);
-}
-
-.popup__text a {
-    color: inherit;
-    text-decoration: underline;
-}
-
-@media (any-hover: hover) {
-    .popup__text a:hover {
-        text-decoration: none;
-    }
-}
-
-@media (min-width: 576px) {
-    .popup__text {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .popup__text {
-        margin: 0 0 30px 0;
-        font-size: 1.125rem;
-    }
-}
-
-.popup__button {
-    max-width: 270px;
-}
-
-@media (min-width: 768px) {
-    .popup__button {
-        max-width: 365px;
-    }
-}
-
-.popup__subbutton {
-    margin: 20px 0 0 0;
-    display: block;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-    color: var(--color-03);
-    border-bottom: 1px solid transparent;
-    transition: border 0.15s linear;
-}
-
-@media (any-hover: hover) {
-    .popup__subbutton:hover {
-        border-color: currentColor;
-    }
-}
-
-@media (min-width: 576px) {
-    .popup__subbutton {
-        font-size: 1.125rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .popup__subbutton {
-        margin: 30px 0 0 0;
-        font-size: 1.25rem;
-    }
-}
-
-.sum-loan {
-    --sum-loan-gap: 7px;
+.conf-reg {
+    --conf-reg-gap: 10px;
     padding: 20px 0 50px 0;
     position: relative;
     z-index: 1;
 }
 
 @media (min-width: 576px) {
-    .sum-loan {
+    .conf-reg {
         padding: 20px 0 60px 0;
-        --sum-loan-gap: 10px;
     }
 }
 
 @media (min-width: 768px) {
-    .sum-loan {
+    .conf-reg {
         padding: 20px 0 80px 0;
-        --sum-loan-gap: 15px;
     }
 }
 
 @media (min-width: 1200px) {
-    .sum-loan {
+    .conf-reg {
         padding: 30px 0 100px 0;
     }
 }
 
-.sum-loan__items {
-    display: grid;
-    gap: var(--sum-loan-gap);
+.conf-reg .main-block__subtitle {
+    max-width: 540px;
+    margin: 0 auto;
 }
 
-.sum-loan__item {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--sum-loan-gap);
-}
-
-.sum-loan__info {
-    padding: 10px 10px 0 10px;
-    margin: 0 0 15px 0;
-    display: block;
-    font-size: 12px;
-    text-align: center;
-    font-weight: 700;
-    color: var(--color-13);
-    opacity: 0.6;
-}
-
-@media (min-width: 576px) {
-    .sum-loan__info {
-        margin: 0 0 20px 0;
-        font-size: 14px;
-    }
+.conf-reg__items,
+.conf-reg__actions {
+    margin: 0 0 20px 0;
 }
 
 @media (min-width: 768px) {
-    .sum-loan__info {
+    .conf-reg__items,
+  .conf-reg__actions {
         margin: 0 0 25px 0;
     }
 }
 
-.sum-loan__checkbox {
-    margin: 0 0 20px 0;
+@media (min-width: 992px) {
+    .conf-reg__items,
+  .conf-reg__actions {
+        margin: 0 0 30px 0;
+    }
+}
+
+.conf-reg__items {
+    display: grid;
+    grid-template-columns: minmax(250px, 410px);
+    justify-content: center;
+    gap: var(--conf-reg-gap);
+}
+
+.conf-reg__actions {
     display: flex;
     justify-content: center;
+}
+
+.conf-reg__link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-28);
+}
+
+.conf-reg__link span {
+    padding: 0 0 0 7px;
+}
+
+@media (any-hover: hover) {
+    .conf-reg__link:hover .conf-reg__link-icon svg {
+        transform: rotate(360deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .conf-reg__link {
+        font-size: 18px;
+    }
+
+    .conf-reg__link span {
+        padding: 0 0 0 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .conf-reg__link {
+        font-size: 20px;
+    }
+}
+
+.conf-reg__link-icon {
+    flex: 0 0 15px;
+    width: 15px;
+    height: 15px;
+    background: currentColor;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.conf-reg__link-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: var(--color-02);
+    transition: transform 0.3s linear;
+}
+
+@media (min-width: 768px) {
+    .conf-reg__link-icon {
+        flex: 0 0 22px;
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+    }
 }

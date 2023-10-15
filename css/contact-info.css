@@ -27,11 +27,23 @@
     --color-25: #cdc6dd;
     --color-26: #9280b4;
     --color-27: #a7a8a9;
+    --color-28: #452c8b;
+    --color-29: #e886ff;
     --color-hover: #f6b9ff;
     --color-button: #ffffff;
     --gradient-01: linear-gradient(157deg, #270f69 26.81%, #ee86ff 78.49%);
     --gradient-02: linear-gradient(163deg, #ee86ff -51.25%, #270f69 76.98%);
     --gradient-03: linear-gradient(180deg, #f1b4ff 0%, #cf00ff 100%);
+    --gradient-04: linear-gradient(
+    180deg,
+    rgba(238, 134, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+    --gradient-05: linear-gradient(
+    180deg,
+    rgba(68, 43, 139, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 @media (min-width: 992px) {
@@ -231,6 +243,12 @@ body.no-scroll {
     .button_light:hover {
         box-shadow: 4px 4px 28px 10px rgba(238, 134, 255, 0.24);
     }
+}
+
+.button_sm {
+    min-height: 60px;
+    font-size: 0.938rem;
+    border-radius: 50px;
 }
 
 .input-main {
@@ -815,6 +833,10 @@ body.no-scroll {
     .bg {
         --bg-height: 380px;
         --bg-radius: 100px;
+    }
+
+    .bg_sm {
+        --bg-height: 300px;
     }
 }
 
