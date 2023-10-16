@@ -300,6 +300,7 @@ body.no-scroll {
 }
 
 .input__group {
+    display: block;
     position: relative;
 }
 
@@ -346,12 +347,12 @@ body.no-scroll {
 }
 
 .input__icon {
-    flex: 0 0 var(--input-icon-size);
     width: var(--input-icon-size);
     height: var(--input-icon-size);
     position: absolute;
-    top: calc(50% - 12.5px);
-    right: 15px;
+    top: 50%;
+    right: var(--input-icon-right);
+    transform: translate3d(0, -50%, 0);
 }
 
 .input__icon svg {
